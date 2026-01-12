@@ -26,16 +26,21 @@ export const Hero: React.FC = () => {
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
               </div>
-              <span className="text-white text-xs font-bold tracking-wider uppercase">Voted #1 in Statesboro</span>
+              <span className="text-white text-xs font-bold tracking-wide uppercase">#1 Rated in Statesboro</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-gold-500/90 backdrop-blur-md px-4 py-2 rounded-full border border-gold-400/50">
+              <Clock size={14} className="text-white" />
+              <span className="text-white text-xs font-bold tracking-wide uppercase">Installs in 7-10 Days</span>
             </div>
           </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-            Excellence Carved in <span className="text-gold-500 italic">Stone</span>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+            Luxury Stone.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-200 to-stone-400">Masterfully Crafted.</span>
           </h1>
           
-          <p className="text-xl text-stone-200 mb-10 leading-relaxed font-light max-w-2xl">
-            South Carolina's premier destination for custom granite, marble, and quartz fabrication. We turn raw slabs into the centerpiece of your home.
+          <p className="text-lg sm:text-xl text-stone-200 mb-8 max-w-2xl font-light leading-relaxed">
+            Stop waiting weeks for big box stores. We fabricate and install premium Granite, Quartz, and Marble in as little as <span className="text-white font-semibold">7 days</span>. Select your exact slab today.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -70,13 +75,6 @@ export const Hero: React.FC = () => {
               <span>Locally Fabricated</span>
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
         </div>
       </div>
     </section>

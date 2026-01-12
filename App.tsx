@@ -12,12 +12,14 @@ import { StickyCTA } from './components/StickyCTA';
 
 function App() {
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 selection:bg-stone-900 selection:text-white">
       <Navbar />
       <main>
         <Hero />
         <Services />
-        <div id="comparison"><Comparison /></div>
+        <div id="comparison">
+          <Comparison />
+        </div>
         <Process />
         <Gallery />
         <Testimonials />
@@ -28,4 +30,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
