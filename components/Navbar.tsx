@@ -1,33 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
+import { Button } from './Button';
 import { NavLink } from '../types';
 
-export const Navbar = () => {
-  const links: NavLink[] = [
-    { label: 'Services', href: '#services' },
-    { label: 'Process', href: '#process' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Contact', href: '#contact' },
-  ];
+const navLinks: NavLink[] = [
+  { label: 'Materials', href: '#materials' },
+  { label: 'Services', href: '#services' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Reviews', href: '#reviews' },
+];
 
+export const Navbar: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <nav className="fixed w-full z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <div className="flex-shrink-0 font-serif text-2xl font-bold tracking-tight">
-            CUSTOM COUNTERS<span className="text-gold-600">.</span>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {links.map((link) => (
-                <a key={link.label} href={link.href} className="text-stone-600 hover:text-stone-900 px-3 py-2 text-sm font-medium transition-colors">
-                  {link.label}
-                </a>
-              ))}
-              <a href="#contact" className="bg-stone-900 text-white px-6 py-2 rounded-sm text-sm font-medium hover:bg-stone-800 transition-all">
-                Get a Quote
-              </a>
-            </div>
-          </div>
+    <nav className={`fixed w-full z-50 transition-all ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <a href="#" className={`text-2xl font-serif font-bold ${isScrolled ? 'text-stone-900' : 'text-white'}`}>Custom Counters<span className="text-gold-500">.</span></a>
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a key={link.label} href={link.href} className={`text-sm font-bold uppercase ${isScrolled ? 'text-stone-600 hover:text-stone-900' : 'text-stone-200 hover:text-white'}`}>{link.label}</a>
+          ))}
+          <Button variant={isScrolled ? 'primary' : 'white'} className="py-2 px-6">Get a Quote</Button>
         </div>
       </div>
     </nav>
