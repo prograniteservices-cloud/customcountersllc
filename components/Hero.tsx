@@ -1,22 +1,82 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Star, Clock, CheckCircle2 } from 'lucide-react';
 import { Button } from './Button';
 
 export const Hero: React.FC = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Luxury kitchen" className="w-full h-full object-cover" />
+        <img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+          alt="Luxury modern kitchen with marble island"
+          className="w-full h-full object-cover"
+        />
+        {/* Dark Overlay for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/60 to-transparent" />
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left pt-20">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6">Excellence Carved in <span className="text-gold-500">Stone</span></h1>
-          <p className="text-xl text-stone-200 mb-10 leading-relaxed font-light">South Carolina's premier destination for custom granite, marble, and quartz fabrication.</p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button variant="white" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Get Free Estimate</Button>
-            <Button variant="outline" className="text-white border-white" onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}>View Recent Work <ArrowRight className="ml-2 w-5 h-5" /></Button>
+          {/* Trust Badge */}
+          <div className="inline-flex flex-wrap items-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+              <div className="flex text-gold-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} fill="currentColor" />
+                ))}
+              </div>
+              <span className="text-white text-xs font-bold tracking-wider uppercase">Voted #1 in Statesboro</span>
+            </div>
           </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+            Excellence Carved in <span className="text-gold-500 italic">Stone</span>
+          </h1>
+          
+          <p className="text-xl text-stone-200 mb-10 leading-relaxed font-light max-w-2xl">
+            South Carolina's premier destination for custom granite, marble, and quartz fabrication. We turn raw slabs into the centerpiece of your home.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <Button 
+              variant="white" 
+              className="text-lg px-10 font-bold"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Get Free Estimate
+            </Button>
+            <Button 
+              variant="outline" 
+              className="text-lg px-10 text-white border-white hover:bg-white hover:text-stone-900"
+              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              View Recent Work
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-white/90 text-sm font-medium border-t border-white/10 pt-8">
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="text-gold-500 w-5 h-5" />
+              <span>Licensed & Insured</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="text-gold-500 w-5 h-5" />
+              <span>Free In-Home Design</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <CheckCircle2 className="text-gold-500 w-5 h-5" />
+              <span>Locally Fabricated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
         </div>
       </div>
     </section>

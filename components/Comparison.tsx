@@ -9,7 +9,11 @@ export const Comparison: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-4">Why Choose Custom Counters?</h2>
           <p className="text-stone-400 text-lg">Don't settle for big box delays and subcontractor quality.</p>
         </div>
+
         <div className="relative">
+          {/* Decorative background blur */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-gold-600/10 blur-3xl rounded-full -z-10" />
+
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
