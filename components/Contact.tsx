@@ -24,60 +24,75 @@ export const Contact: React.FC = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <p className="text-sm text-stone-500 font-medium uppercase tracking-wider">Call Us Directly</p>
-                  <p className="text-xl font-bold text-stone-900">(912) 443-9976</p>
+                  <h3 className="font-bold text-stone-900">Call Us Directly</h3>
+                  <a href="tel:912-443-9976" className="text-lg font-medium text-stone-600 hover:text-stone-900 hover:underline">(912) 443-9976</a>
+                  <p className="text-sm text-stone-500 mt-1">Mon-Fri: 8am - 5pm</p>
                 </div>
               </div>
-
-              <div className="flex items-start gap-4 p-4">
-                <div className="text-stone-400"><MapPin size={24} /></div>
-                <div>
-                  <p className="font-bold text-stone-900">Visit Our Shop</p>
-                  <p className="text-stone-600">Statesboro, GA 30458</p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex items-start gap-3">
+                    <MapPin className="text-gold-500 mt-1" size={20} />
+                    <div>
+                        <h3 className="font-bold text-stone-900">Showroom</h3>
+                        <p className="text-stone-600 text-sm">818 South Main Street<br />Statesboro, GA 30458</p>
+                    </div>
                 </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4">
-                <div className="text-stone-400"><Clock size={24} /></div>
-                <div>
-                  <p className="font-bold text-stone-900">Business Hours</p>
-                  <p className="text-stone-600">Mon-Fri: 8:00 AM - 5:00 PM</p>
-                  <p className="text-stone-600 text-sm italic">Saturday by Appointment</p>
+                <div className="flex items-start gap-3">
+                    <Mail className="text-gold-500 mt-1" size={20} />
+                    <div>
+                        <h3 className="font-bold text-stone-900">Email</h3>
+                        <p className="text-stone-600 text-sm">customcounters823@gmail.com</p>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-stone-50 p-8 rounded-2xl border border-stone-200 shadow-sm">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Form */}
+          <div className="bg-stone-50 p-8 sm:p-10 rounded-2xl shadow-xl shadow-stone-200/50 border border-stone-100 relative overflow-hidden">
+            {/* Form Header */}
+            <div className="mb-6 pb-6 border-b border-stone-200">
+               <h3 className="text-xl font-bold text-stone-900">Request Estimate</h3>
+               <p className="text-stone-500 text-sm mt-1">Tell us about your project. We typically reply within 2 hours.</p>
+            </div>
+
+            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-stone-700 mb-1">Your Name</label>
-                  <input type="text" id="name" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="John Smith" />
+                  <label htmlFor="firstName" className="block text-sm font-semibold text-stone-700 mb-1">First Name *</label>
+                  <input required type="text" id="firstName" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="John" />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-stone-700 mb-1">Phone Number</label>
-                  <input type="tel" id="phone" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="(912) 000-0000" />
+                  <label htmlFor="lastName" className="block text-sm font-semibold text-stone-700 mb-1">Last Name *</label>
+                  <input required type="text" id="lastName" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="Doe" />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-stone-700 mb-1">Email Address</label>
-                <input type="email" id="email" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="john@example.com" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                 <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-stone-700 mb-1">Email *</label>
+                    <input required type="email" id="email" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="john@example.com" />
+                 </div>
+
+                 <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-stone-700 mb-1">Phone *</label>
+                    <input required type="tel" id="phone" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all" placeholder="(555) 123-4567" />
+                 </div>
               </div>
 
               <div>
-                <label htmlFor="material" className="block text-sm font-semibold text-stone-700 mb-1">Interested Material</label>
+                <label htmlFor="material" className="block text-sm font-semibold text-stone-700 mb-1">Interested In</label>
                 <div className="relative">
-                    <select id="material" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all appearance-none bg-white">
-                        <option>Granite</option>
-                        <option>Quartz</option>
-                        <option>Marble</option>
-                        <option>Other / Not Sure</option>
+                    <select id="material" className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-stone-500 focus:border-stone-500 outline-none transition-all bg-white appearance-none cursor-pointer">
+                    <option value="">Select a material...</option>
+                    <option value="granite">Granite (Natural, Heat Resistant)</option>
+                    <option value="quartz">Quartz (Maintenance Free)</option>
+                    <option value="marble">Marble (Luxury)</option>
+                    <option value="other">Not Sure / Need Advice</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-stone-500">
-                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-stone-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                 </div>
               </div>
@@ -103,6 +118,7 @@ export const Contact: React.FC = () => {
               </div>
             </form>
           </div>
+
         </div>
       </div>
     </section>

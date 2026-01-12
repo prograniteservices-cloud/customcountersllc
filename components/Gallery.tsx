@@ -28,15 +28,15 @@ const projects: PortfolioItem[] = [
   },
   {
     id: 5,
-    imageUrl: "https://images.unsplash.com/photo-1556912177-c54030639a8c?q=80&w=2070&auto=format&fit=crop",
-    title: "Chef's Kitchen Redesign",
+    imageUrl: "https://images.unsplash.com/photo-1540932296774-74d6c48e58a7?q=80&w=1858&auto=format&fit=crop",
+    title: "Commercial Bar Top",
     category: "Black Granite"
   },
   {
     id: 6,
-    imageUrl: "https://images.unsplash.com/photo-1520699049698-acd2fccb8cc8?q=80&w=1000&auto=format&fit=crop",
-    title: "Fireplace Surround",
-    category: "Natural Stone"
+    imageUrl: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=2070&auto=format&fit=crop",
+    title: "Contemporary Condo",
+    category: "Soapstone"
   }
 ];
 
@@ -44,7 +44,7 @@ export const Gallery: React.FC = () => {
   return (
     <section id="gallery" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Our Latest Projects</h2>
             <p className="text-stone-600 text-lg">Browse our portfolio of custom installations across Georgia.</p>

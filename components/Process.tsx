@@ -52,9 +52,7 @@ export const Process: React.FC = () => {
                   {step.number}
                 </span>
                 <h3 className="text-xl font-bold mb-3 mt-1">{step.title}</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">
-                  {step.description}
-                </p>
+                <p className="text-stone-400">{step.description}</p>
               </div>
             ))}
           </div>
